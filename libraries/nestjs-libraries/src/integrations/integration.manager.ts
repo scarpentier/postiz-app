@@ -48,7 +48,7 @@ const socialIntegrationList: SocialProvider[] = [
   new FarcasterProvider(),
   new TelegramProvider(),
   new NostrProvider(),
-  // new MastodonCustomProvider(),
+  new MastodonCustomProvider(),
 ];
 
 const articleIntegrationList = [
