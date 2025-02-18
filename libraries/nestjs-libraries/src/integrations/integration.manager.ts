@@ -20,7 +20,6 @@ import { ThreadsProvider } from '@gitroom/nestjs-libraries/integrations/social/t
 import { DiscordProvider } from '@gitroom/nestjs-libraries/integrations/social/discord.provider';
 import { SlackProvider } from '@gitroom/nestjs-libraries/integrations/social/slack.provider';
 import { MastodonProvider } from '@gitroom/nestjs-libraries/integrations/social/mastodon.provider';
-import { MastodonCustomProvider } from '@gitroom/nestjs-libraries/integrations/social/mastodon.custom.provider';
 import { BlueskyProvider } from '@gitroom/nestjs-libraries/integrations/social/bluesky.provider';
 import { LemmyProvider } from '@gitroom/nestjs-libraries/integrations/social/lemmy.provider';
 import { InstagramStandaloneProvider } from '@gitroom/nestjs-libraries/integrations/social/instagram.standalone.provider';
@@ -49,7 +48,7 @@ const socialIntegrationList: SocialProvider[] = [
   new FarcasterProvider(),
   new TelegramProvider(),
   new NostrProvider(),
-  new MastodonCustomProvider(),
+  // new MastodonCustomProvider(),
 ];
 
 const articleIntegrationList = [
