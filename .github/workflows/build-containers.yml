@@ -53,11 +53,11 @@ jobs:
         env:
           CONTAINERVER: ${{ needs.build-containers-common.outputs.containerver }}
         run: |
-          docker tag localhost/postiz ghcr.io/gitroomhq/postiz-app:${{ env.CONTAINERVER }}-${{ matrix.arch }}
-          docker push ghcr.io/gitroomhq/postiz-app:${{ env.CONTAINERVER }}-${{ matrix.arch }}
+          docker tag localhost/postiz ghcr.io/scarpentier/postiz-app:${{ env.CONTAINERVER }}-${{ matrix.arch }}
+          docker push ghcr.io/scarpentier/postiz-app:${{ env.CONTAINERVER }}-${{ matrix.arch }}
 
-          docker tag localhost/postiz-devcontainer ghcr.io/gitroomhq/postiz-devcontainer:${{ env.CONTAINERVER }}-${{ matrix.arch }}
-          docker push ghcr.io/gitroomhq/postiz-devcontainer:${{ env.CONTAINERVER }}-${{ matrix.arch }}
+          docker tag localhost/postiz-devcontainer ghcr.io/scarpentier/postiz-devcontainer:${{ env.CONTAINERVER }}-${{ matrix.arch }}
+          docker push ghcr.io/scarpentier/postiz-devcontainer:${{ env.CONTAINERVER }}-${{ matrix.arch }}
 
   build-container-manifest:
     needs: [build-containers, build-containers-common]
@@ -75,15 +75,15 @@ jobs:
           CONTAINERVER: ${{ needs.build-containers-common.outputs.containerver }}
         run: |
           docker manifest create \
-            ghcr.io/gitroomhq/postiz-app:latest \
-            ghcr.io/gitroomhq/postiz-app:${{ env.CONTAINERVER }}-arm64 \
-            ghcr.io/gitroomhq/postiz-app:${{ env.CONTAINERVER }}-amd64
+            ghcr.io/scarpentier/postiz-app:latest \
+            ghcr.io/scarpentier/postiz-app:${{ env.CONTAINERVER }}-arm64 \
+            ghcr.io/scarpentier/postiz-app:${{ env.CONTAINERVER }}-amd64
 
-          docker manifest push ghcr.io/gitroomhq/postiz-app:latest
+          docker manifest push ghcr.io/scarpentier/postiz-app:latest
 
           docker manifest create \
-            ghcr.io/gitroomhq/postiz-devcontainer:latest \
-            ghcr.io/gitroomhq/postiz-devcontainer:${{ env.CONTAINERVER }}-arm64 \
-            ghcr.io/gitroomhq/postiz-devcontainer:${{ env.CONTAINERVER }}-amd64
+            ghcr.io/scarpentier/postiz-devcontainer:latest \
+            ghcr.io/scarpentier/postiz-devcontainer:${{ env.CONTAINERVER }}-arm64 \
+            ghcr.io/scarpentier/postiz-devcontainer:${{ env.CONTAINERVER }}-amd64
 
-          docker manifest push ghcr.io/gitroomhq/postiz-devcontainer:latest
+          docker manifest push ghcr.io/scarpentier/postiz-devcontainer:latest
